@@ -1,38 +1,34 @@
-import React, { useContext, useEffect } from "react";
-import "./App.css";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { TooltipComponent } from "@syncfusion/ej2-react-popups";
+import React, { useEffect } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { FiSettings } from "react-icons/fi";
+import { TooltipComponent } from "@syncfusion/ej2-react-popups";
+
+import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
 import {
-  Footer,
-  Navbar,
-  Pie,
-  Sidebar,
-  Stacked,
-  ThemeSettings,
-} from "./components";
-import {
-  Area,
-  Bar,
-  Calendar,
-  ColorMapping,
-  ColorPicker,
-  Customers,
   Ecommerce,
-  Editor,
+  Orders,
+  Calendar,
   Employees,
-  Financial,
+  Stacked,
+  Pyramid,
+  Customers,
   Kanban,
   Line,
-  Orders,
-  Pyramid,
+  Area,
+  Bar,
+  Pie,
+  Financial,
+  ColorPicker,
+  ColorMapping,
+  Editor,
 } from "./pages";
+import "./App.css";
 
 import { useStateContext } from "./contexts/ContextProvider";
 
 const App = () => {
   const {
-    setCurrentCollor,
+    setCurrentColor,
     setCurrentMode,
     currentMode,
     activeMenu,
@@ -45,7 +41,7 @@ const App = () => {
     const currentThemeColor = localStorage.getItem("colorMode");
     const currentThemeMode = localStorage.getItem("themeMode");
     if (currentThemeColor && currentThemeMode) {
-      setCurrentCollor(currentThemeColor);
+      setCurrentColor(currentThemeColor);
       setCurrentMode(currentThemeMode);
     }
   }, []);
